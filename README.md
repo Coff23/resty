@@ -14,4 +14,4 @@
 
 ## Links
 
-- [Resty](https://codesandbox.io/p/github/Coff23/resty/draft/empty-tdd?file=/.codesandbox/tasks.json:1,1&workspaceId=45b7e562-5891-4a6a-9459-b3024b29d193)
+- [Code Sandbox](https://codesandbox.io/p/github/Coff23/resty/draft/empty-tdd?file=/.codesandbox/tasks.json:1,1&workspaceId=45b7e562-5891-4a6a-9459-b3024b29d193)
