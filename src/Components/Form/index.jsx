@@ -27,14 +27,14 @@ function Form(props) {
       <form onSubmit={handleSubmit}>
         <label >
           <span>URL: </span>
-          <input name='url' type='text' onChange={(event) => setUrl(event.target.value)} />
-          <button type="submit">GO!</button>
+          <input data-testid="form-input" name='url' type='text' onChange={(event) => setUrl(event.target.value)} />
+          <button data-testid="form-button" type="submit">GO!</button>
         </label>
         <label className="methods">
-          <span id="get" onClick={handleClick}>GET</span>
-          <span id="post" onClick={handleClick}>POST</span>
-          <span id="put" onClick={handleClick}>PUT</span>
-          <span id="delete" onClick={handleClick}>DELETE</span>
+          <span data-testid="form-span-get" id="get" onClick={handleClick}>GET</span>
+          <span data-testid="form-span-post" id="post" onClick={handleClick}>POST</span>
+          <span data-testid="form-span-put" id="put" onClick={handleClick}>PUT</span>
+          <span data-testid="form-span-delete" id="delete" onClick={handleClick}>DELETE</span>
         </label>
         {method === 'post' && <textarea onChange={(event) => setJson(event.target.value)} />}
         {method === 'put' && <textarea onChange={(event) => setJson(event.target.value)} />}

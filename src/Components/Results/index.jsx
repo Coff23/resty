@@ -7,7 +7,7 @@ function Results(props) {
     <section>
       {
         props.loading
-          ? <div>Loading</div>
+          ? <div data-testid="results-div-res">Loading</div>
           : <pre> {props.data ? <JSONPretty id="json-pretty" theme={JSONPrettyMon} data={props.data} /> : null}</pre>
       }
     </section >
