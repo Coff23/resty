@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './App.scss';
 
@@ -11,40 +11,48 @@ import Footer from './Components/Footer';
 import Form from './Components/Form';
 import Results from './Components/Results';
 
-class App extends React.Component {
+const App = () => {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: null,
-      requestParams: {},
-    };
-  }
+  const [data, setData] = useState(null);
+  const [requestParams, setRequestParams] = useState({})
+  const [loading, setLoading] = useState(false);
 
-  callApi = (requestParams) => {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     data: null,
+  //     requestParams: {},
+  //   };
+  // }
+
+  const callApi = (requestParams) => {
+    setLoading(true);
     // mock output
-    const data = {
-      count: 2,
-      results: [
-        {name: 'fake thing 1', url: 'http://fakethings.com/1'},
-        {name: 'fake thing 2', url: 'http://fakethings.com/2'},
-      ],
-    };
-    this.setState({data, requestParams});
+    setTimeout(() => {
+      const data = {
+        count: 2,
+        results: [
+          { name: 'pikachu', url: 'https://pokeapi.co/api/v2/pokemon/pikachu' },
+          { name: 'mew', url: 'https://pokeapi.co/api/v2/pokemon/mew' },
+        ],
+      };
+      // this.setState({data, requestParams});
+      setData(data);
+      setRequestParams(requestParams);
+      setLoading(false);
+    }, 2000);
   }
 
-  render() {
-    return (
-      <React.Fragment>
-        <Header />
-        <div>Request Method: {this.state.requestParams.method}</div>
-        <div>URL: {this.state.requestParams.url}</div>
-        <Form handleApiCall={this.callApi} />
-        <Results data={this.state.data} />
-        <Footer />
-      </React.Fragment>
-    );
-  }
+  return (
+    <React.Fragment>
+      <Header />
+      <div>Request Method: {requestParams.method}</div>
+      <div>URL: {requestParams.url}</div>
+      <Form handleApiCall={callApi} />
+      <Results data={data} loading={loading} />
+      <Footer />
+    </React.Fragment>
+  );
 }
 
 export default App;
