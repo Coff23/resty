@@ -36,8 +36,17 @@ function Form(props) {
           <span data-testid="form-span-put" id="put" onClick={handleClick}>PUT</span>
           <span data-testid="form-span-delete" id="delete" onClick={handleClick}>DELETE</span>
         </label>
-        {method === 'post' && <textarea onChange={(event) => setJson(event.target.value)} />}
-        {method === 'put' && <textarea onChange={(event) => setJson(event.target.value)} />}
+
+        {method === 'post' ? (
+          <textarea onChange={(event) => setJson(event.target.value)} />
+        ) : null}
+
+        {method === 'put' ? (
+          <textarea onChange={(event) => setJson(event.target.value)} />
+        ) : null}
+
+        {/* {method === 'post' && <textarea onChange={(event) => setJson(event.target.value)} />}
+        {method === 'put' && <textarea onChange={(event) => setJson(event.target.value)} />} */}
       </form>
     </>
   );
