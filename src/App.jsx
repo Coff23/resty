@@ -32,7 +32,6 @@ const App = () => {
 
   const callApi = (requestParams) => {
     setLoading(true);
-    // mock output
     setTimeout(() => {
       setRequestParams(requestParams);
       setLoading(false);
